@@ -17,11 +17,11 @@ public class AnalysisLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime requestTime;
+    private double avgTemp;
+    private double rainfall;
+    private double humidity;
 
-    @Column(length = 1000)
-    private String inputData;
+    private double prediction;
 
-    @Column(length = 1000)
-    private String predictionResult;
+    private String createdAt;
 }

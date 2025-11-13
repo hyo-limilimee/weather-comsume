@@ -18,6 +18,6 @@ public class WeatherController {
 
     @PostMapping("/predict")
     public WeatherResponse predict(@RequestBody WeatherRequest request) {
-        return weatherService.predictWeatherConsume(request);
+        return weatherService.getPrediction(request);
     }
 }

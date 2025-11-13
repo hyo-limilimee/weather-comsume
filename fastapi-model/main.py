@@ -5,11 +5,11 @@ import random
 app = FastAPI(title="Weather Consume Model API")
 
 class WeatherData(BaseModel):
-    avg_temp: float
+    avgTemp: float
     rainfall: float
     humidity: float
 
 @app.post("/predict")
 def predict(data: WeatherData):
-    result = data.avg_temp * 1000 - data.humidity *25 + random.uniform(-300,300)
-    return {"predict":round(result,2)}
+    result = data.avgTemp * 1000 - data.humidity * 25 + random.uniform(-300, 300)
+    return {"prediction": round(result, 2)}
