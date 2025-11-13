@@ -105,9 +105,9 @@ weather-consume-api/
 -[x] H2 콘솔 활성화 및 DB 확인 (/h2-console)
 
 ### ☁️ C. 날씨 기반 예측 API
--[ ] WeatherRequest, WeatherResponse DTO 생성
+-[X] WeatherRequest, WeatherResponse DTO 생성
 -[ ] WeatherController 구현 (/api/predict 요청 처리)
--[ ] WeatherService 구현 (랜덤 계산으로 예측값 생성)
+-[X] WeatherService 구현 (랜덤 계산으로 예측값 생성)
 -[ ] 예측 요청 시 로그 자동 저장 (DB 연동 확인)
 -[ ] Postman/curl로 /api/predict 요청 테스트
 
