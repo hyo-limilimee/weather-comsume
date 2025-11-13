@@ -119,7 +119,7 @@ weather-consume-api/
 
 ### 🛜 D. FastAPI 연동
 -[X] FastAPI 서버 구축 (/predict POST 엔드포인트)
--[ ] Spring → FastAPI 간 HTTP 통신 구현 (WebClient 사용)
+-[X] Spring → FastAPI 간 HTTP 통신 구현 (WebClient 사용)
 -[ ] 예측 결과 수신 후 DB 로그 저장
 -[ ] 통신 및 에러 처리 테스트
 
