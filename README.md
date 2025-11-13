@@ -21,32 +21,48 @@ Python(FastAPI) 모델 서버와의 연동을 통해 분석 및 예측 기능을
 - **특징**
     - 프론트엔드 없이 백엔드 중심 설계
     - 확장 가능한 MSA 구조 (Spring ↔ FastAPI)
-    - 빅데이터분석기사 실기 흐름(전처리→모델링→예측)을 실제 서비스화
 
 ---
 
 ## 🧩 프로젝트 구성
 
-```text
+```
 weather-consume-api/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/weatherconsume/api/
-│   │   │       ├── controller/     # REST API 엔드포인트
-│   │   │       ├── service/        # 비즈니스 로직, Python 서버 호출
-│   │   │       ├── repository/     # JPA Repository
-│   │   │       ├── domain/         # Entity 클래스
-│   │   │       └── dto/            # 요청/응답 DTO
+│   │   │   └── com/hyorim/weather_consume_api/
+│   │   │       ├── WeatherConsumeApiApplication.java    # 실행 진입점
+│   │   │       │
+│   │   │       ├── controller/                          # 요청을 받는 REST API 엔드포인트
+│   │   │       │   ├── TestController.java              # 단순 서버 확인용
+│   │   │       │   ├── LogController.java               # 로그 CRUD 관리용
+│   │   │       │   └── WeatherController.java           # 예측 API
+│   │   │       │
+│   │   │       ├── service/                             # 비즈니스 로직 계층
+│   │   │       │   ├── TestService.java                 # 단순 응답용
+│   │   │       │   ├── LogService.java                  # 로그 저장 및 조회 처리
+│   │   │       │   └── WeatherService.java              # 예측 처리(임시 로직 포함)
+│   │   │       │
+│   │   │       ├── repository/                          # DB 접근 계층 (JPA)
+│   │   │       │   └── AnalysisLogRepository.java       # 로그 테이블 접근
+│   │   │       │
+│   │   │       ├── domain/                              # Entity 정의 (DB 테이블과 매핑)
+│   │   │       │   └── AnalysisLog.java                 # 로그 테이블 구조 정의
+│   │   │       │
+│   │   │       └── dto/                                 # 요청/응답 데이터 구조 정의
+│   │   │           ├── WeatherRequest.java              # /predict 요청용 DTO
+│   │   │           └── WeatherResponse.java             # /predict 응답용 DTO
+│   │   │
 │   │   └── resources/
-│   │       ├── application.yml     # DB, Python 서버 URL 설정
-│   │       └── static/, templates/ # 정적 리소스
-│   └── test/                       # 단위 테스트 코드
+│   │       ├── application.yml                          
+│   │       ├── static/                                  
+│   │       └── templates/                               
+│   │
+│   └── test/                                            
 │
-├── build.gradle
-├── settings.gradle
-├── HELP.md                         # Spring 기본 가이드 (자동 생성)
-└── README.md                       # 📘 현재 문서
+└── .gitignore / .gitattributes / gradlew 등
+
 ```
 
 ## 🏗️ 아키텍처
