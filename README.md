@@ -106,10 +106,10 @@ weather-consume-api/
 
 ### ☁️ C. 날씨 기반 예측 API
 -[X] WeatherRequest, WeatherResponse DTO 생성
--[ ] WeatherController 구현 (/api/predict 요청 처리)
+-[X] WeatherController 구현 (/api/predict 요청 처리)
 -[X] WeatherService 구현 (랜덤 계산으로 예측값 생성)
--[ ] 예측 요청 시 로그 자동 저장 (DB 연동 확인)
--[ ] Postman/curl로 /api/predict 요청 테스트
+-[X] 예측 요청 시 로그 자동 저장 (DB 연동 확인)
+-[X] Postman/curl로 /api/predict 요청 테스트
 
 ### 🛜 D. FastAPI 연동
 -[ ] FastAPI 서버 구축 (/predict POST 엔드포인트)
