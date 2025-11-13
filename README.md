@@ -61,7 +61,13 @@ weather-consume-api/
 │   │
 │   └── test/                                            
 │
-└── .gitignore / .gitattributes / gradlew 등
+├── fastapi-model/                                       #  Python 기반 예측 모델 서버
+│   ├── main.py                                          # FastAPI 실행 진입점 (/predict)
+│   ├── model.pkl                                        # 학습된 머신러닝 모델
+│   ├── train_model.py                                   # 모델 학습 스크립트
+│   └── requirements.txt                                 # Python 의존성 
+│
+└──gitignore / .gitattributes / gradlew 등
 
 ```
 
@@ -112,7 +118,7 @@ weather-consume-api/
 -[X] Postman/curl로 /api/predict 요청 테스트
 
 ### 🛜 D. FastAPI 연동
--[ ] FastAPI 서버 구축 (/predict POST 엔드포인트)
+-[X] FastAPI 서버 구축 (/predict POST 엔드포인트)
 -[ ] Spring → FastAPI 간 HTTP 통신 구현 (WebClient 사용)
 -[ ] 예측 결과 수신 후 DB 로그 저장
 -[ ] 통신 및 에러 처리 테스트
