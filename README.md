@@ -89,3 +89,37 @@ weather-consume-api/
 │  - 예측 요청/응답 로그 저장 │
 └─────────────────────────────┘
 ```
+
+## ✅ 기능 구현 체크리스트
+### ⚙️ A. 서버 기본 구성
+-[x] Spring Boot 프로젝트 세팅 (Gradle, Java 21, JPA, Lombok 등)
+-[x] Sapplication.yml 환경 설정 (H2/MySQL DB, JPA 설정)
+-[x] S패키지 구조 설계 (controller, service, domain, repository, dto)
+-[x] /api/test 서버 상태 확인용 기본 API 구현
+
+### 💾 B. 로그 관리 기능
+-[x] AnalysisLog 엔티티 생성 (요청 시각, 입력값, 예측 결과)
+-[x] AnalysisLogRepository 생성 (JPA 기반 CRUD)
+-[x] LogService 구현 (로그 저장 및 조회 비즈니스 로직)
+-[x] LogController 구현 (/api/logs POST, GET 엔드포인트)
+-[x] H2 콘솔 활성화 및 DB 확인 (/h2-console)
+
+### ☁️ C. 날씨 기반 예측 API
+-[ ] WeatherRequest, WeatherResponse DTO 생성
+-[ ] WeatherController 구현 (/api/predict 요청 처리)
+-[ ] WeatherService 구현 (랜덤 계산으로 예측값 생성)
+-[ ] 예측 요청 시 로그 자동 저장 (DB 연동 확인)
+-[ ] Postman/curl로 /api/predict 요청 테스트
+
+### 🛜 D. FastAPI 연동
+-[ ] FastAPI 서버 구축 (/predict POST 엔드포인트)
+-[ ] Spring → FastAPI 간 HTTP 통신 구현 (WebClient 사용)
+-[ ] 예측 결과 수신 후 DB 로그 저장
+-[ ] 통신 및 에러 처리 테스트
+
+### 📊 E. 데이터 모델링
+-[ ] 기상 데이터 수집 (기상자료개방포털, 공공데이터포털)
+-[ ] 소비 데이터 수집 (BC카드, 서울열린데이터광장)
+-[ ] 데이터 전처리 및 병합 (날짜 기준 Join)
+-[ ] train_model.py 작성 (모델 학습 및 model.pkl 생성)
+-[ ] FastAPI에서 model.pkl 로드하여 실제 예측 수행
