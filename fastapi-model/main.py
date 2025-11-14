@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import random
+import joblib
+import numpy as np
 
-app = FastAPI(title="Weather Consume Model API")
+app = FastAPI(title="Weather → Passenger Prediction Model API")
+
+model = joblib.load("model.pkl")
 
 class WeatherData(BaseModel):
     avgTemp: float
@@ -11,5 +14,7 @@ class WeatherData(BaseModel):
 
 @app.post("/predict")
 def predict(data: WeatherData):
-    result = data.avgTemp * 1000 - data.humidity * 25 + random.uniform(-300, 300)
-    return {"prediction": round(result, 2)}
+
+    X = np.array([[data.avgTemp, data.rainfall, data.humidity]])
+    pred = model.predict(X)[0]
+    return {"prediction": float(pred)}
