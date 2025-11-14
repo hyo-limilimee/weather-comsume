@@ -3,7 +3,7 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 
-app = FastAPI(title="Weather → Passenger Prediction Model API")
+app = FastAPI()
 
 model = joblib.load("model.pkl")
 
@@ -14,7 +14,6 @@ class WeatherData(BaseModel):
 
 @app.post("/predict")
 def predict(data: WeatherData):
-
     X = np.array([[data.avgTemp, data.rainfall, data.humidity]])
     pred = model.predict(X)[0]
     return {"prediction": float(pred)}

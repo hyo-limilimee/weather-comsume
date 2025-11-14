@@ -39,3 +39,6 @@ out/
 fastapi-model/data/
 fastapi-model/model.pkl
 fastapi-model/venv/
+
+*.csv
+*.pkl
