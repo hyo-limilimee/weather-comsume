@@ -1,6 +1,6 @@
+import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
-import joblib
 import numpy as np
 
 app = FastAPI()
@@ -14,6 +14,7 @@ class WeatherData(BaseModel):
 
 @app.post("/predict")
 def predict(data: WeatherData):
-    X = np.array([[data.avgTemp, data.rainfall, data.humidity]])
-    pred = model.predict(X)[0]
-    return {"prediction": float(pred)}
+    input_data = np.array([[data.avgTemp, data.rainfall, data.humidity]])
+    prediction = model.predict(input_data)[0]
+
+    return {"prediction": float(prediction)}
