@@ -126,6 +126,31 @@ weather-consume-api/
 ### 📊 E. 데이터 모델링
 -[X] 기상 데이터 수집 
 -[X] 소비 데이터 수집 (지하철 역 승하차 정보)
--[ ] 데이터 전처리 및 병합 (날짜 기준 Join)
--[ ] train_model.py 작성 (모델 학습 및 model.pkl 생성)
--[ ] FastAPI에서 model.pkl 로드하여 실제 예측 수행
+-[X] 데이터 전처리 및 병합 (날짜 기준 Join)
+-[X] train_model.py 작성 (모델 학습 및 model.pkl 생성)
+-[X] FastAPI에서 model.pkl 로드하여 실제 예측 수행
+
+----
+## 🛠️ 테스트 수행
+### Domain Test
+-[ ]  AnalysisLog Builder 생성 테스트
+-[ ]  null 값 처리 여부(필요 시)
+-[ ]  상태 값 변경(규칙 생기면 추가)
+
+### Service Test
+-[ ] LogService Test
+  - saveLog 호출 시 repository.save() 호출 여부
+  - prediction 값 정상 매핑
+  - timestamp null 아님 테스트
+-[ ] WeatherService Test
+ - FastAPI mock 응답 처리
+- prediction 값과 message 포맷 확인
+- logService.saveLog() 호출 여부
+
+### Controller Test
+-[ ] LogController Test
+  - /api/logs 정상 200 반환
+  - Repository 결과 JSON 매핑 확인
+-[ ] WeatherController Test
+  -  정상 요청 200
+  - JSON 구조 검증 (prediction, message)
