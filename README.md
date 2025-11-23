@@ -133,9 +133,7 @@ weather-consume-api/
 ----
 ## 🛠️ 테스트 수행
 ### Domain Test
--[ ]  AnalysisLog Builder 생성 테스트
--[ ]  null 값 처리 여부(필요 시)
--[ ]  상태 값 변경(규칙 생기면 추가)
+-[X]  AnalysisLog Builder 생성 테스트
 
 ### Service Test
 -[ ] LogService Test
