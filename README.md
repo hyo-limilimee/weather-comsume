@@ -149,6 +149,6 @@ weather-consume-api/
 -[X] LogController Test
   - /api/logs 정상 200 반환
   - Repository 결과 JSON 매핑 확인
--[ ] WeatherController Test
+-[X] WeatherController Test
   -  정상 요청 200
   - JSON 구조 검증 (prediction, message)
