@@ -146,7 +146,7 @@ weather-consume-api/
 - logService.saveLog() 호출 여부
 
 ### Controller Test
--[ ] LogController Test
+-[X] LogController Test
   - /api/logs 정상 200 반환
   - Repository 결과 JSON 매핑 확인
 -[ ] WeatherController Test
