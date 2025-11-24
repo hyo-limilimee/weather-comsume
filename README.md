@@ -133,7 +133,7 @@ weather-consume-api/
 ----
 ## 🛠️ 테스트 수행
 ### Domain Test
--[ X]  AnalysisLog Builder 생성 테스트
+- [X]  AnalysisLog Builder 생성 테스트
 
 ### Service Test
 - [X] LogService Test
