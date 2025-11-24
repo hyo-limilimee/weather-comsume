@@ -99,56 +99,56 @@ weather-consume-api/
 
 ## ✅ 기능 구현 체크리스트
 ### ⚙️ A. 서버 기본 구성
--[x] Spring Boot 프로젝트 세팅 (Gradle, Java 21, JPA, Lombok 등)
--[x] Sapplication.yml 환경 설정 (H2/MySQL DB, JPA 설정)
--[x] S패키지 구조 설계 (controller, service, domain, repository, dto)
--[x] /api/test 서버 상태 확인용 기본 API 구현
+- [x] Spring Boot 프로젝트 세팅 (Gradle, Java 21, JPA, Lombok 등)
+- [x] Sapplication.yml 환경 설정 (H2/MySQL DB, JPA 설정)
+- [x] S패키지 구조 설계 (controller, service, domain, repository, dto)
+- [x] /api/test 서버 상태 확인용 기본 API 구현
 
 ### 💾 B. 로그 관리 기능
--[x] AnalysisLog 엔티티 생성 (요청 시각, 입력값, 예측 결과)
--[x] AnalysisLogRepository 생성 (JPA 기반 CRUD)
--[x] LogService 구현 (로그 저장 및 조회 비즈니스 로직)
--[x] LogController 구현 (/api/logs POST, GET 엔드포인트)
--[x] H2 콘솔 활성화 및 DB 확인 (/h2-console)
+- [x] AnalysisLog 엔티티 생성 (요청 시각, 입력값, 예측 결과)
+- [x] AnalysisLogRepository 생성 (JPA 기반 CRUD)
+- [x] LogService 구현 (로그 저장 및 조회 비즈니스 로직)
+- [x] LogController 구현 (/api/logs POST, GET 엔드포인트)
+- [x] H2 콘솔 활성화 및 DB 확인 (/h2-console)
 
 ### ☁️ C. 날씨 기반 예측 API
--[X] WeatherRequest, WeatherResponse DTO 생성
--[X] WeatherController 구현 (/api/predict 요청 처리)
--[X] WeatherService 구현 (랜덤 계산으로 예측값 생성)
--[X] 예측 요청 시 로그 자동 저장 (DB 연동 확인)
--[X] Postman/curl로 /api/predict 요청 테스트
+- [X] WeatherRequest, WeatherResponse DTO 생성
+- [X] WeatherController 구현 (/api/predict 요청 처리)
+- [X] WeatherService 구현 (랜덤 계산으로 예측값 생성)
+- [X] 예측 요청 시 로그 자동 저장 (DB 연동 확인)
+- [X] Postman/curl로 /api/predict 요청 테스트
 
 ### 🛜 D. FastAPI 연동
--[X] FastAPI 서버 구축 (/predict POST 엔드포인트)
--[X] Spring → FastAPI 간 HTTP 통신 구현 (WebClient 사용)
--[X] 예측 결과 수신 후 DB 로그 저장
+- [X] FastAPI 서버 구축 (/predict POST 엔드포인트)
+- [X] Spring → FastAPI 간 HTTP 통신 구현 (WebClient 사용)
+- [X] 예측 결과 수신 후 DB 로그 저장
 
 ### 📊 E. 데이터 모델링
--[X] 기상 데이터 수집 
--[X] 소비 데이터 수집 (지하철 역 승하차 정보)
--[X] 데이터 전처리 및 병합 (날짜 기준 Join)
--[X] train_model.py 작성 (모델 학습 및 model.pkl 생성)
--[X] FastAPI에서 model.pkl 로드하여 실제 예측 수행
+- [X] 기상 데이터 수집 
+- [X] 소비 데이터 수집 (지하철 역 승하차 정보)
+- [X] 데이터 전처리 및 병합 (날짜 기준 Join)
+- [X] train_model.py 작성 (모델 학습 및 model.pkl 생성)
+- [X] FastAPI에서 model.pkl 로드하여 실제 예측 수행
 
 ----
 ## 🛠️ 테스트 수행
 ### Domain Test
--[X]  AnalysisLog Builder 생성 테스트
+-[ X]  AnalysisLog Builder 생성 테스트
 
 ### Service Test
--[X] LogService Test
+- [X] LogService Test
   - saveLog 호출 시 repository.save() 호출 여부
   - prediction 값 정상 매핑
   - timestamp null 아님 테스트
--[X] WeatherService Test
+- [X] WeatherService Test
  - FastAPI mock 응답 처리
 - prediction 값과 message 포맷 확인
 - logService.saveLog() 호출 여부
 
 ### Controller Test
--[X] LogController Test
+- [X] LogController Test
   - /api/logs 정상 200 반환
   - Repository 결과 JSON 매핑 확인
--[X] WeatherController Test
+- [X] WeatherController Test
   -  정상 요청 200
   - JSON 구조 검증 (prediction, message)
