@@ -136,11 +136,11 @@ weather-consume-api/
 -[X]  AnalysisLog Builder 생성 테스트
 
 ### Service Test
--[ ] LogService Test
+-[X] LogService Test
   - saveLog 호출 시 repository.save() 호출 여부
   - prediction 값 정상 매핑
   - timestamp null 아님 테스트
--[ ] WeatherService Test
+-[X] WeatherService Test
  - FastAPI mock 응답 처리
 - prediction 값과 message 포맷 확인
 - logService.saveLog() 호출 여부
